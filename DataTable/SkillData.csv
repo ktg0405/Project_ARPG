@@ -1,0 +1,3 @@
+﻿Header,Id,SkillName,SkillType,Description
+1,1,PC_NormalAttack,Melee,플레이어 일반 공격
+2,2,PC_Dash,Dash,플레이어 이동 스킬
