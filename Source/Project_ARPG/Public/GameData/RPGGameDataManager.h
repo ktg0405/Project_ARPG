@@ -9,7 +9,8 @@
 UENUM()
 enum class EGameDataTableType : uint8 
 {
-	Skill = 0
+	Skill = 0,
+	PC
 };
 
 /**
@@ -26,7 +27,8 @@ public:
 	void Init();
 	
 	// Data Get ÇÔ¼ö
-	struct FRPGSkillData* GetSkillData(int32 InId);
+	struct FRPGSkillData* GetSkillData(int32 InId);		// Skill Data
+	struct FRPGPCData* GetPCData(int32 InId);			// PC Data
 
 private:
 	void SetDataTable(EGameDataTableType InDataTableType, const FString& InDataPath);
@@ -36,3 +38,5 @@ private:
 
 	TMap<EGameDataTableType, class UDataTable*> DataTableMap;
 };
+
+#define GAMEDATAMANAGER		URPGGameDataManager::GetInstance()

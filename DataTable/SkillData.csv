@@ -1,3 +1,6 @@
-﻿Header,Id,SkillName,SkillType,Description
-1,1,PC_NormalAttack,Melee,플레이어 일반 공격
-2,2,PC_Dash,Dash,플레이어 이동 스킬
+﻿Header,Id,SkillName,SkillType,Cooldown,SkillAnimPath,Description
+1,1,Shinbi_Attack_1,NormalAttack,0,AnimMontage'/Game/ParagonShinbi/Characters/Heroes/Shinbi/Animations/PrimaryMelee_B_Slow_Montage.PrimaryMelee_B_Slow_Montage',신비 캐릭터 일반공격
+2,2,Shinbi_Attack_2,NormalAttack,0,AnimMontage'/Game/ParagonShinbi/Characters/Heroes/Shinbi/Animations/PrimaryMelee_C_Slow_Montage.PrimaryMelee_C_Slow_Montage',신비 캐릭터 일반공격
+3,3,Shinbi_Attack_3,NormalAttack,0,AnimMontage'/Game/ParagonShinbi/Characters/Heroes/Shinbi/Animations/PrimaryMelee_D_Slow_Montage.PrimaryMelee_D_Slow_Montage',신비 캐릭터 일반공격
+4,4,Shinbi_Dash,Dash,3,AnimMontage'/Game/ParagonShinbi/Characters/Heroes/Shinbi/Animations/Ability_Dash_Montage.Ability_Dash_Montage',신비 캐릭터 대쉬
+5,5,Shinbi_CirclingWolves,RangeAttack,8,AnimMontage'/Game/ParagonShinbi/Characters/Heroes/Shinbi/Animations/Ability_CirclingWolves_Montage.Ability_CirclingWolves_Montage',신비 범위 공격

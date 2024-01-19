@@ -3,6 +3,7 @@
 
 #include "GameData/RPGGameDataManager.h"
 #include "GameData/RPGSkillData.h"
+#include "GameData/RPGPCData.h"
 
 URPGGameDataManager* URPGGameDataManager::Instance;
 
@@ -17,7 +18,8 @@ URPGGameDataManager* URPGGameDataManager::GetInstance()
 void URPGGameDataManager::Init()
 {
 	// 데이터 테이블 셋팅
-	SetDataTable(EGameDataTableType::Skill, TEXT("/Game/GameData/SkillData.SkillData"));
+	SetDataTable(EGameDataTableType::Skill,		TEXT("/Game/GameData/SkillData.SkillData"));
+	SetDataTable(EGameDataTableType::PC,		TEXT("/Game/GameData/PCData.PCData"));
 }
 
 FRPGSkillData* URPGGameDataManager::GetSkillData(int32 InId)
@@ -29,12 +31,21 @@ FRPGSkillData* URPGGameDataManager::GetSkillData(int32 InId)
 	return nullptr;
 }
 
+FRPGPCData* URPGGameDataManager::GetPCData(int32 InId)
+{
+	UDataTable* PCDataTable = DataTableMap.FindRef(EGameDataTableType::PC);
+	if (PCDataTable)
+		return PCDataTable->FindRow<FRPGPCData>(*FString::FromInt(InId), TEXT(""));
+
+	return nullptr;
+}
+
 void URPGGameDataManager::SetDataTable(EGameDataTableType InDataTableType, const FString& InDataPath)
 {
-	static ConstructorHelpers::FObjectFinder<UDataTable> DataTable(*InDataPath);
-	if (DataTable.Succeeded())
+	UDataTable* DataTable = LoadObject<UDataTable>(nullptr, *InDataPath);
+	if (DataTable)
 	{
 		if (!DataTableMap.Contains(InDataTableType))
-			DataTableMap.Emplace(InDataTableType, DataTable.Object);
+			DataTableMap.Emplace(InDataTableType, DataTable);
 	}
 }

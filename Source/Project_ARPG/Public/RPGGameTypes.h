@@ -8,13 +8,16 @@ UENUM()
 enum class ESkillActionType : uint8 
 {
 	NormalAttack = 0,
+	Dash,
 	SkillAction1,
-	Dash
+	Max
 };
+ENUM_RANGE_BY_COUNT(ESkillActionType, ESkillActionType::Max);
 
 UENUM(BlueprintType)
 enum class ESkillType : uint8
 {
 	Melee = 0,
-	Dash
+	Dash,
+	RangeAttack,
 };

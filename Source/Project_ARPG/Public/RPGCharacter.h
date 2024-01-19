@@ -21,6 +21,12 @@ public:
 	void Move(const FVector2D& InAxis);
 	void Look(const FVector2D& InAxis);
 
+	class URPGSkillComponent* GetSkillComponent() { return SkillComponent; }
+
 protected:
 	virtual void BeginPlay() override;
+
+protected:
+	UPROPERTY()
+	class URPGSkillComponent* SkillComponent;
 };

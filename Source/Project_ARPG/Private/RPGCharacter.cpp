@@ -4,7 +4,7 @@
 #include "RPGCharacter.h"
 #include "RPGGameTypes.h"
 #include "GameData/RPGSkillData.h"
-#include "Project_ARPG.h"
+#include "Skill/RPGSkillComponent.h"
 
 ARPGCharacter::ARPGCharacter()
 {
@@ -14,6 +14,9 @@ ARPGCharacter::ARPGCharacter()
 void ARPGCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	SkillComponent = NewObject<URPGSkillComponent>(this, URPGSkillComponent::StaticClass(), TEXT("SkillComponent"));
+	SkillComponent->RegisterComponent();
 }
 
 void ARPGCharacter::Tick(float DeltaTime)

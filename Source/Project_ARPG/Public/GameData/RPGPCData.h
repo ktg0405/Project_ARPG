@@ -3,15 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "RPGGameTypes.h"
 #include "Engine/DataTable.h"
-#include "RPGSkillData.generated.h"
+#include "RPGPCData.generated.h"
 
 /**
  * 
  */
 USTRUCT(BlueprintType)
-struct FRPGSkillData : public FTableRowBase
+struct FRPGPCData : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 
@@ -20,17 +19,23 @@ public:
 	int32 Id;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FName SkillName;
+	FName Name;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	ESkillType SkillType;
+	int32 NormalAttack1_ID;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 Cooldown;
+	int32 NormalAttack2_ID;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString SkillAnimPath;
+	int32 NormalAttack3_ID;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString Description;
+	int32 Dash_ID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 SkillAction1_ID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString ResourcePath;
 };
